@@ -33,16 +33,19 @@ class CityConfigurationForm extends ConfigFormBase {
     $config = $this->config('time_block.settings');
     $form['country'] = [
       '#type' => 'textfield',
+      '#required' => TRUE,
       '#title' => $this->t('Country'),
       '#default_value' => $config->get('country'),
     ];
     $form['city'] = [
       '#type' => 'textfield',
+      '#required' => TRUE,
       '#title' => $this->t('City'),
       '#default_value' => $config->get('city'),
     ];
     $form['timezone'] = [
       '#type' => 'select',
+      '#required' => TRUE,
       '#title' => $this->t('Time Zone'),
       '#default_value' => $config->get('timezone'),
       '#options' => [
@@ -70,7 +73,6 @@ class CityConfigurationForm extends ConfigFormBase {
       $this->config('time_block.settings')
         ->set($values, $inputs[$values]);
     }
-    $time = \Drupal::service('time_block.helper')->convert($inputs['timezone']);
     $this->config('time_block.settings')->save();
   }
 

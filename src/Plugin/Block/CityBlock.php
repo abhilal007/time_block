@@ -71,7 +71,21 @@ class CityBlock extends BlockBase implements ContainerFactoryPluginInterface {
    */
   public function build(): array {
     $config = $this->configFactory->get('time_block.settings');
-    $time = $this->blockHelper->convert($config->get('timezone'));
+    $time_zone = $config->get('timezone');
+    if (!$time_zone) {
+      return [
+        '#theme' => 'status_messages',
+        '#message_list' => [
+          'error' => [
+            $this->t('Module is not configured.'),
+          ],
+        ],
+        '#status_headings' => [
+          'error' => $this->t('Error Message'),
+        ],
+      ];
+    }
+    $time = $this->blockHelper->convert($time_zone);
     return [
       '#theme' => 'city_block',
       '#country' => $config->get('country'),
