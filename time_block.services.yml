@@ -1,0 +1,4 @@
+services:
+  time_block.helper:
+    class: Drupal\time_block\TimeBlockHelper
+    #arguments: ['@http_client', '@config.factory', '@keyvalue.expirable', '@logger.channel.announcements_feed']

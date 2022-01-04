@@ -1,0 +1,7 @@
+time_block.announcement:
+  path: '/admin/config/time_block'
+  defaults:
+    _form: '\Drupal\time_block\Form\CityConfigurationForm'
+    _title: 'City details'
+  requirements:
+    _permission: 'administer site configuration'

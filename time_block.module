@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * @file
+ * Module file for the time_block.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function time_block_theme() {
+  return [
+    'city_block' => [
+      'variables' => ['country' => NULL, 'city' => NULL, 'time' => NULL],
+      'template' => 'block--city-block',
+    ],
+  ];
+}
